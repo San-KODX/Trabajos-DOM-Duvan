@@ -1,0 +1,164 @@
+/* Neón minimalista */
+:root {
+  --fondo: #07080d;
+  --superficie: #0e1119;
+  --linea: #1f2535;
+  --texto: #d7dbe8;
+  --texto-suave: #8089a3;
+  --neon: #00e5ff;
+  --neon-suave: rgba(0, 229, 255, 0.35);
+  --neon-tenue: rgba(0, 229, 255, 0.08);
+}
+ 
+* { box-sizing: border-box; }
+ 
+body {
+  margin: 0 auto;
+  max-width: 680px;
+  padding: 48px 24px 80px;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  line-height: 1.65;
+}
+ 
+h1 {
+  margin: 28px 0 8px;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 14px var(--neon-suave);
+}
+ 
+h2 {
+  margin: 36px 0 10px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--neon);
+}
+ 
+p { margin: 0 0 14px; color: var(--texto-suave); }
+strong { color: var(--texto); font-weight: 600; }
+ 
+code {
+  padding: 1px 6px;
+  border: 1px solid var(--linea);
+  border-radius: 4px;
+  background: var(--superficie);
+  color: var(--neon);
+  font-size: 0.9em;
+}
+ 
+a {
+  color: var(--neon);
+  text-decoration: none;
+  transition: text-shadow 0.2s;
+}
+a:hover, a:focus-visible { text-shadow: 0 0 10px var(--neon); }
+ 
+/* Lista de ejercicios (index) */
+ul { list-style: none; margin: 0; padding: 0; }
+li {
+  margin-bottom: 10px;
+  padding: 12px 16px;
+  border-left: 2px solid var(--linea);
+  background: var(--superficie);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+li:hover {
+  border-left-color: var(--neon);
+  box-shadow: -4px 0 14px -6px var(--neon);
+}
+ 
+/* Formularios */
+form {
+  margin-top: 28px;
+  padding: 24px;
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  background: var(--superficie);
+}
+form p:last-child { margin-bottom: 0; }
+ 
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+ 
+input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+  background: var(--fondo);
+  color: var(--texto);
+  font: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input::placeholder { color: #4a5168; }
+input:focus {
+  outline: none;
+  border-color: var(--neon);
+  box-shadow: 0 0 0 3px var(--neon-tenue), 0 0 12px var(--neon-suave);
+}
+input[readonly] {
+  border-style: dashed;
+  color: var(--neon);
+  text-shadow: 0 0 8px var(--neon-suave);
+}
+ 
+/* Botones */
+form p:has(button) { display: flex; flex-wrap: wrap; gap: 10px; }
+ 
+button {
+  padding: 9px 18px;
+  border: 1px solid var(--neon);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--neon);
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+button:hover, button:focus-visible {
+  outline: none;
+  background: var(--neon);
+  color: var(--fondo);
+  box-shadow: 0 0 16px var(--neon-suave);
+}
+button:active { transform: translateY(1px); }
+ 
+/* Tabla (presupuesto) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--superficie);
+}
+th, td {
+  padding: 10px 16px;
+  border: none;
+  border-bottom: 1px solid var(--linea);
+  text-align: left;
+}
+th { color: var(--neon); font-weight: 500; }
+td:last-child, th:last-child { text-align: right; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:nth-last-child(2) td { color: var(--neon); text-shadow: 0 0 8px var(--neon-suave); }
+td[id] { font-variant-numeric: tabular-nums; }
+ 
+@media (max-width: 480px) {
+  body { padding: 28px 16px 60px; }
+  form { padding: 16px; }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+ 
